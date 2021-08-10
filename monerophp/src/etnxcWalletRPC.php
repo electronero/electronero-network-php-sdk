@@ -129,7 +129,7 @@ class etnxcWalletRPC
   public function _transform($amount = 0)
   {
     //
-    return $amount / 100;
+    return $amount * 100;
   }
 
   /**

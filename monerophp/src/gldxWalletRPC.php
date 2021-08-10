@@ -471,7 +471,7 @@ public function transfer($amount, $address = '', $payment_id = '', $mixin = 6, $
         }
         foreach ($destinations as $destination) {
           if (array_key_exists('amount', $destinations[$destination])) {
-            $destinations[$destination]['amount'] = $destinations[$destination]['amount'];
+            $destinations[$destination]['amount'] = $this->_transform($destinations[$destination]['amount']);
           } else {
             throw new Exception('Error: Amount required');
           }
@@ -490,7 +490,7 @@ public function transfer($amount, $address = '', $payment_id = '', $mixin = 6, $
         } else {
           throw new Exception('Error: Address required');
         }
-        $destinations = array(array('amount' => $amount, 'address' => $address));
+        $destinations = array(array('amount' => $this->_transform($amount), 'address' => $address));
       }
       if (array_key_exists('payment_id', $params)) {
         $payment_id = $params['payment_id'];
@@ -514,7 +514,7 @@ public function transfer($amount, $address = '', $payment_id = '', $mixin = 6, $
         $do_not_relay = $params['do_not_relay'];
       }
     } else { // Legacy parameters used
-      $destinations = array(array('amount' => $amount, 'address' => $address));
+      $destinations = array(array('amount' => $this->_transform($amount), 'address' => $address));
     }
     $params = array('destinations' => $destinations, 'mixin' => $mixin, 'get_tx_key' => true, 'payment_id' => $payment_id, 'account_index' => $account_index, 'subaddr_indices' => $subaddr_indices, 'priority' => $priority, 'do_not_relay' => $do_not_relay);
     $transfer_method = $this->_run('transfer', $params);
@@ -537,7 +537,7 @@ public function transfer($amount, $address = '', $payment_id = '', $mixin = 6, $
         }
         foreach ($destinations as $destination) {
           if (array_key_exists('amount', $destinations[$destination])) {
-            $destinations[$destination]['amount'] = $destinations[$destination]['amount'];
+            $destinations[$destination]['amount'] = $this->_transform($destinations[$destination]['amount']);
           } else {
             throw new Exception('Error: Amount required');
           }
@@ -556,7 +556,7 @@ public function transfer($amount, $address = '', $payment_id = '', $mixin = 6, $
         } else {
           throw new Exception('Error: Address required');
         }
-        $destinations = array(array('amount' => $amount, 'address' => $address));
+        $destinations = array(array('amount' => $this->_transform($amount), 'address' => $address));
       }
       if (array_key_exists('mixin', $params)) {
         $mixin = $params['mixin'];
@@ -580,7 +580,7 @@ public function transfer($amount, $address = '', $payment_id = '', $mixin = 6, $
         $do_not_relay = $params['do_not_relay'];
       }
     } else { // Legacy parameters used
-      $destinations = array(array('amount' => $amount, 'address' => $address));
+      $destinations = array(array('amount' => $this->_transform($amount), 'address' => $address));
     }
     $params = array('destinations' => $destinations, 'mixin' => $mixin, 'get_tx_key' => true, 'account_index' => $account_index, 'subaddr_indices' => $subaddr_indices, 'payment_id' => $payment_id, 'priority' => $priority, 'unlock_time' => $unlock_time, 'do_not_relay' => $do_not_relay);
     $transfer_method = $this->_run('transfer_split', $params);
@@ -677,7 +677,7 @@ public function transfer($amount, $address = '', $payment_id = '', $mixin = 6, $
         $do_not_relay = $params['do_not_relay'];
       }
     }
-    $params = array('address' => $address, 'mixin' => $mixin, 'get_tx_key' => true, 'subaddr_indices' => $subaddr_indices, 'account_index' => $account_index, 'payment_id' => $payment_id, 'priority' => $priority, 'below_amount' => $below_amount, 'unlock_time' => $unlock_time, 'do_not_relay' => $do_not_relay);
+    $params = array('address' => $address, 'mixin' => $mixin, 'get_tx_key' => true, 'subaddr_indices' => $subaddr_indices, 'account_index' => $account_index, 'payment_id' => $payment_id, 'priority' => $priority, 'below_amount' => $this->_transform($below_amount), 'unlock_time' => $unlock_time, 'do_not_relay' => $do_not_relay);
     $sweep_all_method = $this->_run('sweep_all', $params);
     $save = $this->store(); // Save wallet state after transfer
     return $sweep_all_method;
@@ -750,10 +750,8 @@ public function transfer($amount, $address = '', $payment_id = '', $mixin = 6, $
         $do_not_relay = $params['do_not_relay'];
       }
     }
-
-    $params = array('address' => $address, 'mixin' => $mixin, 'get_tx_key' => true, 'account_index' => $account_index, 'payment_id' => $payment_id, 'priority' => $priority, 'below_amount' => $below_amount, 'unlock_time' => $unlock_time, 'do_not_relay' => $do_not_relay);
+    $params = array('address' => $address, 'mixin' => $mixin, 'get_tx_key' => true, 'account_index' => $account_index, 'payment_id' => $payment_id, 'priority' => $priority, 'below_amount' => $this->_transform($below_amount), 'unlock_time' => $unlock_time, 'do_not_relay' => $do_not_relay);
     $sweep_single_method = $this->_run('sweep_single', $params);
-
     $save = $this->store(); // Save wallet state after transfer
 
     return $sweep_single_method;
@@ -1447,7 +1445,8 @@ public function transfer($amount, $address = '', $payment_id = '', $mixin = 6, $
    */
   public function make_uri($address, $amount, $payment_id = null, $recipient_name = null, $tx_description = null)
   {
-    $params = array('address' => $address, 'amount' => $amount, 'payment_id' => $payment_id, 'recipient_name' => $recipient_name, 'tx_description' => $tx_description);
+    $params = array('address' => $address, 'amount' => $this->_transform($amount), 'payment_id' => $payment_id, 'recipient_name' => $recipient_name, 'tx_description' => $tx_description);
+    
     return $this->_run('make_uri', $params);
   }
 
