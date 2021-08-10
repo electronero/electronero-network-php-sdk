@@ -1,8 +1,8 @@
-# electronero-php-sdk </br>
-Electronero PHP SDK </br>
+# crystaleum-php </br>
+crystaleum PHP SDK </br>
 </br>
-Telegram: https://t.me/electronero </br>
-Twitter: https://twitter.com/_electronero </br>
+Telegram: https://t.me/crystaleum </br>
+Twitter: https://twitter.com/crystaleum </br>
 </br>
-Daemon Docs > https://github.com/electronero/electronero-php-sdk/blob/master/monerophp/docs/daemonRPC.md </br>
-Wallet RPC Docs > https://github.com/electronero/electronero-php-sdk/blob/master/monerophp/docs/walletRPC.md </br>
+crystaleumd - Daemon Docs > https://github.com/crystaleum/crystaleum-php-sdk/blob/master/monerophp/docs/daemonRPC.md </br>
+crystaleum-wallet-rpc - Wallet Docs > https://github.com/crystaleum/crystaleum-php-sdk/blob/master/monerophp/docs/walletRPC.md </br>
