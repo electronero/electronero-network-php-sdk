@@ -31,7 +31,7 @@
 
 require_once('jsonRPCClient.php');
 
-class etnxWalletRPC
+class crfiWalletRPC
 {
   private $client;
 
@@ -129,8 +129,7 @@ class etnxWalletRPC
   public function _transform($amount = 0)
   {
     //
-    error_log($amount);
-    return $amount / 100000000;
+    return $amount / 1000000000000;
   }
 
   /**
@@ -461,7 +460,7 @@ class etnxWalletRPC
    * }
    *
    */
-public function transfer($amount, $address = '', $payment_id = '', $mixin = 6, $account_index = 0, $subaddr_indices = '', $priority = 2, $unlock_time = 0, $do_not_relay = false)
+public function transfer($amount, $address = '', $payment_id = '', $mixin = 2, $account_index = 0, $subaddr_indices = '', $priority = 3, $unlock_time = 0, $do_not_relay = false)
   {
     if (is_array($amount)) { // Parameters passed in as object/dictionary
       $params = $amount;
@@ -527,7 +526,7 @@ public function transfer($amount, $address = '', $payment_id = '', $mixin = 6, $
    * Same as transfer, but splits transfer into more than one transaction if necessary
    *
    */
-  public function transfer_split($amount, $address = '', $payment_id = '', $mixin = 6, $account_index = 0, $subaddr_indices = '', $priority = 2, $unlock_time = 0, $do_not_relay = false)
+  public function transfer_split($amount, $address = '', $payment_id = '', $mixin = 2, $account_index = 0, $subaddr_indices = '', $priority = 3, $unlock_time = 0, $do_not_relay = false)
   {
     if (is_array($amount)) { // Parameters passed in as object/dictionary
       $params = $amount;
