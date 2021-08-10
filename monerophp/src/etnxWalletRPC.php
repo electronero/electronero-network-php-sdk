@@ -129,6 +129,7 @@ class etnxWalletRPC
   public function _transform($amount = 0)
   {
     //
+    error_log($amount);
     return $amount / 100000000;
   }
 

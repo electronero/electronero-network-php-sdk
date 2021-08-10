@@ -129,7 +129,7 @@ class ltnxWalletRPC
   public function _transform($amount = 0)
   {
     //
-    return $amount / 100000000;
+    return $amount * 100000000;
   }
 
   /**

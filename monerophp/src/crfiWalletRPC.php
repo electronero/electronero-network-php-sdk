@@ -129,7 +129,7 @@ class crfiWalletRPC
   public function _transform($amount = 0)
   {
     //
-    return $amount / 1000000000000;
+    return $amount * 1000000000000;
   }
 
   /**
@@ -643,7 +643,7 @@ public function transfer($amount, $address = '', $payment_id = '', $mixin = 1, $
    * }
    *
    */
-  public function sweep_all($address, $subaddr_indices = '', $account_index = 0, $payment_id = '', $mixin = 1, $priority = 3, $unlock_time = 0, $below_amount = 0, $do_not_relay = false)
+  public function sweep_all($address, $subaddr_indices = '', $account_index = 0, $payment_id = '', $mixin = 1, $priority = 3, $below_amount = 0, $unlock_time = 0, $do_not_relay = false)
   {
     if (is_array($address)) { // Parameters passed in as object/dictionary
       $params = $address;
