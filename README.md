@@ -21,11 +21,7 @@ This library has 3 main parts:
 
 In addition to these features, there are other lower-level libraries included for portability, *eg.* an ed25519 library, a SHA3 library, *etc.*
 
-## Preview
-![Preview](https://user-images.githubusercontent.com/4107993/38056594-b6cd6e14-3291-11e8-96e2-a771b0e9cee3.png)
-
 ## Documentation
-
 Documentation can be found in the [`/docs`](https://github.com/sneurlax/electronerophp/tree/master/docs) folder.
 
 ## Configuration
