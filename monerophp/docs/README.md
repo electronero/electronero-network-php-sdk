@@ -1,6 +1,6 @@
-# MoneroPHP documentation
+# Electronero PHP SDK documentation
 
-This document lists the MoneroPHP classes and their methods.  More detailed documentation (including parameters and their types and return formats and examples) can be found on each class' page.
+This document lists the Electronero PHP SDK classes and their methods.  are detailed documentation (including parameters and their types and return formats and examples) can be found on each class' page.
 
 ### Classes
 
