@@ -2,15 +2,15 @@
 A Electronero library written in PHP by [Electronero Integrations](https://electronerointegrations.com).</br>
 Forked by [Interchained](https://github.com/interchained) for Electronero Network](https://github.com/electronero)</br>
 </br>
-Telegram: https://t.me/electronero </br>
-Twitter: https://twitter.com/_electronero </br>
-</br>
-Daemon Docs > https://github.com/electronero/electronero-php-sdk/blob/master/electronerophp/docs/daemonRPC.md </br>
-Wallet Docs > https://github.com/electronero/electronero-php-sdk/blob/master/electronerophp/docs/walletRPC.md </br>
 This is compatible with all of Electronero Network coins: ETNX, ETNXP, LTNX, GLDX, and CRFI. 
 </br>
 Each coin has their own PHP wrapper in the `/src` directory
 </br>
+Telegram: https://t.me/electronero </br>
+Twitter: https://twitter.com/_electronero </br>
+</br>
+Daemon Docs > https://github.com/electronero/electronero-php-sdk/blob/master/electronerophp/docs/daemonRPC.md </br>
+Wallet Docs > https://github.com/electronero/electronero-php-sdk/blob/master/electronerophp/docs/walletRPC.md </br
 ______________________________
 ## How It Works
 This library has 3 main parts:
