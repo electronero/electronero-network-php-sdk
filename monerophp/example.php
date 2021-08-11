@@ -30,7 +30,7 @@ require_once('src/walletRPC.php');
 
 $walletRPC = new walletRPC('127.0.0.1', 54321); // Change to match your wallet (electronero-wallet-rpc) IP address and port; 
 // $daemonRPC = new walletRPC(['host' => '127.0.0.1', 'port' => 54321]) // Passing parameters in as array; parameters can be in any order and all are optional.
-$create_wallet = $walletRPC->create_wallet('electronero_wallet', ''); // Creates a new wallet named electronero_wallet with no passphrase.  Comment this line and edit the next line to use your own wallet
+$create_wallet = $walletRPC->create_wallet('electronero_wallet', 'password'); // Creates a new wallet named electronero_wallet with no passphrase.  Comment this line and edit the next line to use your own wallet
 $open_wallet = $walletRPC->open_wallet('electronero_wallet_name', 'password');
 $get_address = $walletRPC->get_address();
 $get_accounts = $walletRPC->get_accounts();
