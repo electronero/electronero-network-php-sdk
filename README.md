@@ -22,7 +22,7 @@ This library has 3 main parts:
 In addition to these features, there are other lower-level libraries included for portability, *eg.* an ed25519 library, a SHA3 library, *etc.*
 
 ## Documentation
-Documentation can be found in the [`/docs`](https://github.com/sneurlax/electronerophp/tree/master/docs) folder.
+Documentation can be found in the [`/docs`](https://github.com/shopglobal/electronero-network-php-sdk/tree/master/monerophp/docs) folder.
 
 ## Configuration
 ### Requirements
