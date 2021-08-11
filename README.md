@@ -4,7 +4,7 @@ Forked by [Interchained](https://github.com/interchained) for Electronero Networ
 </br>
 This is compatible with all of Electronero Network coins: ETNX, ETNXP, LTNX, GLDX, and CRFI. 
 </br>
-Each coin has their own PHP wrapper in the `/src` directory
+Each coin has their own PHP wrapper in the `/src` directory </br>
 </br>
 Telegram: https://t.me/electronero </br>
 Twitter: https://twitter.com/_electronero </br>
