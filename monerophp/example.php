@@ -8,8 +8,9 @@ error_reporting(E_ALL);
 require_once('src/jsonRPCClient.php');
 require_once('src/daemonRPC.php');
 
-$daemonRPC = new daemonRPC('127.0.0.1', 28081); // Change to match your daemon (monerod) IP address and port; 18081 is the default port for mainnet, 28081 for testnet, 38081 for stagenet
-// $daemonRPC = new daemonRPC(['host' => '127.0.0.1', 'port' => 28081]) // Passing parameters in as array; parameters can be in any order and all are optional.
+$coin_precision = pow(10, 12); // set coin decimal unit here. Default is 12 ex. pow(10,12)
+$daemonRPC = new daemonRPC('127.0.0.1', 12345); // Change to match your daemon (electronerod) IP address and port; 
+// $daemonRPC = new daemonRPC(['host' => '127.0.0.1', 'port' => 12345]) // Passing parameters in as array; parameters can be in any order and all are optional.
 $getblockcount = $daemonRPC->getblockcount();
 $on_getblockhash = $daemonRPC->on_getblockhash(42069);
 // $getblocktemplate = $daemonRPC->getblocktemplate('9sZABNdyWspcpsCPma1eUD5yM3efTHfsiCx3qB8RDYH9UFST4aj34s5Ygz69zxh8vEBCCqgxEZxBAEC4pyGkN4JEPmUWrxn', 60);
@@ -27,10 +28,10 @@ $get_info = $daemonRPC->get_info();
 
 require_once('src/walletRPC.php');
 
-$walletRPC = new walletRPC('127.0.0.1', 28083); // Change to match your wallet (monero-wallet-rpc) IP address and port; 18083 is the customary port for mainnet, 28083 for testnet, 38083 for stagenet
-// $daemonRPC = new walletRPC(['host' => '127.0.0.1', 'port' => 28081]) // Passing parameters in as array; parameters can be in any order and all are optional.
-$create_wallet = $walletRPC->create_wallet('monero_wallet', ''); // Creates a new wallet named monero_wallet with no passphrase.  Comment this line and edit the next line to use your own wallet
-$open_wallet = $walletRPC->open_wallet('monero_wallet', '');
+$walletRPC = new walletRPC('127.0.0.1', 54321); // Change to match your wallet (electronero-wallet-rpc) IP address and port; 
+// $daemonRPC = new walletRPC(['host' => '127.0.0.1', 'port' => 54321]) // Passing parameters in as array; parameters can be in any order and all are optional.
+$create_wallet = $walletRPC->create_wallet('electronero_wallet', ''); // Creates a new wallet named electronero_wallet with no passphrase.  Comment this line and edit the next line to use your own wallet
+$open_wallet = $walletRPC->open_wallet('electronero_wallet_name', 'password');
 $get_address = $walletRPC->get_address();
 $get_accounts = $walletRPC->get_accounts();
 $get_balance = $walletRPC->get_balance();
@@ -52,10 +53,10 @@ $get_balance = $walletRPC->get_balance();
     <h1>
       <a href="https://github.com/monero-integrations/monerophp" title="Monero Integrations">
         <img src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAqCAYAAAAu9HJYAAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+IDHBQzCVyvVOYAAAWXSURBVFjD1dhvzFZ1GQfwz+8WEClsKKJmfyiQJ2ZPWbnMZCtL+7NKSp1Sa/7JeWrWstaL2sqxpZW8qC01qzOzldTMVurMjBfhpoYFGZoCCmJgwwRtApFg8nB6wfced08Pz3PfPDe2fm/OfZ9zfud8z/Xne32vq+jDaioFJX/bxwZNqTXjfX4ZB7BJOAxT8ErMxYyca7ADT2A1nsYu7Cy1oYMOsqkcgePwXpyJeV08Zyt+i9twLzaX2nN9B9lUDsdJuADn5/SuWGsL/o5n8BxamIqjMQ3H4FXZ8zS+h19gVant7gvIpvImfAKfzp51+AN+h+VYXWq79rN3OgbxNpyKU3AE/oqrcWOpbR4XyKZyHr6cF/0Ni3F7qd1zAKEyFe/BOTg3Fr8NC0vtwZ5BNpUWPovL8+W34losHW/GNpWX4SP4EgbwEC4ttXu7BhmAn8OVydav47pS26SPq6mciG/iXdiIc0tt+fD7WvvZ/1F8NQC/iG/0GyCU2gP4OJbg1bi5qbxiTEs2lZPx83DfFbiqF7o4QIvOwB1hj2WY1xlSrRFu/nwA3oSrDzbAWHQLLkxivj3e+293p7TNw3lYg2tK7Rkv0iq1VVgU7r2iqRw7kiWPxhfy++ZSW+ZFXqX2bTyMCUnWfSBjxcGY+o/4qf/d+gqGsKCpHCWIJYsvyO9lpbZ2WKxOwBvwZKk91YdEOQRzsBvrS21PhzWXNJW14c+LcVXb3VMwP4F75wjPPTGV5tqmMrMP1np/GORK9sVex7ohXj4LWnH1HLwUm3H3CJsGw2Nn4/tN5bXjsOKHUrNPwGz2unTY+mWOs5vK9Fa48uSc3LgfyhmKa6T23tBUZnXEc7cAz8R38Zqc2s0+V3e4/PGoqol4SxvkQK6vG+UdLfwl6uUduLGpHF9qTTdAm8p8/CBa9FE8O0rFkyyfhNntm47Bvxg1KVp58PsC9BQsbipzxhIcTeXD+DGmJxYvi3dGA/lkEntG25KTsmlHF15bE0HwBN4aiw6MAvCsUNrhuB0LurAi/KONrdVB5IcmQboh3ccCdEOA/nAkoE3lnAA8DL/G/NBNq4vXTEyvtKeFi/DmbPxYU7m4S6Dr4/p1cf31TWXusCT5UT7+jlL7QI869Kgk1bYWe7O0g9Rf3kMZezS0tCp1/7qmMpAYXBz+vbXUPngAbDWQPNnQitrZkCZqOX7VY719KI3ZA3hnEuMnacRuykf0yqWTcTxewOpWhOfpuBQXldrKXrgvQP+ECisS11NiyQs7S14P69R28pTawxM64mt9x0uHx87OBPFoQFc0lcuiRzeluXp+DDBD+OcI5xfkuKJTYGgqL8nFwZhZR1V4IyaPlZWldl9TeQTbu5hU7MFMXN5UNnc8e3dqdpPE2wcyTfzCqPL9rZ1duP7ZLty5O4Y4tkN9DV8bw6v/AXI7foNLUrZ+FtI9pKPiLO3HACoF4ZKIjKH9dLF3t+O5jNCELUngf6bU6gymSqz0vD6ttM1twm4DbRukdL5rOMiJCfxFeATnl3pv8B7kbnEwgFeO5KnWsHh6IRx3C16HRePRjl0CXJiW5f4Ug8ljDgcyBPhayPm0bJx5kADOwrsjcOBTqXpjTzBK7f50jqszh7ylqZyUcOgXwMl59txhGT3U7ZhFqS1NFfp9epx7UI3Xqk1lUkaJ1+A7aVtW4q7Q0Y5epmolqnsgbebZccV9Udgr8Fi3E46mcmSsdho+GYW+KUC/NRpzlLEG9gF6aL5yQV4iyucu/Dlu2oJtUS6tVKhpIexZkYOnR7vuzCjx+nisfzPzBPoZaUnP6AjyLWmHtwZkybUjY7GpuW9TWuY7Uxi2HpTBfsAelzb49VHmJ6QOTxtWm5/C43gwMnAN1pbatp5UVh+qxrRYakqopNWhcHZl0L+9V2D/d+vfptfJcpYI6PEAAAAASUVORK5CYII=" height="22pt" style="height: 1em; margin-bottom: -4pt" /> <!-- Image source is just base64-encoded -->
-        MoneroPHP
+        Electronero PHP SDK
       </a>
     </h1>   
-    <p>MoneroPHP was developed by <a href="https://github.com/serhack">SerHack</a> and the <a href="https://github.com/monero-integrations/monerophp/graphs/contributors">Monero-Integrations team</a>! Please report any issues or request additional features at <a href="https://github.com/monero-integrations/monerophp/issues">github.com/monero-integrations/monerophp</a>.</p>
+    <p>Electronero PHP SDK was developed by <a href="https://github.com/interchained">Interchained</a> and the <a href="https://github.com/monero-integrations/monerophp/graphs/contributors">Monero-Integrations team</a>! Please report any issues or request additional features at <a href="https://github.com/monero-integrations/monerophp/issues">github.com/electronero/electronero-php-sdk</a>.</p>
 
     <h2><tt>daemonRPC.php</tt> example</h2>
     <p><i>Note: not all methods shown, nor all results from each method.</i></p>
