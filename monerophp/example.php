@@ -102,7 +102,7 @@ $get_balance = $walletRPC->get_balance();
         <?php
           foreach ($get_accounts['subaddress_accounts'] as $account) {
             echo '<p>Account ' . $account['account_index'] . ': <tt>' . $account['base_address'] . '</tt><br />';
-            echo 'Balance: <tt>' . $account['balance'] / pow(10, 12) . '</tt> (<tt>' . $account['unlocked_balance'] / pow(10, 12) . '</tt> unlocked)<br />';
+            echo 'Balance: <tt>' . $account['balance'] / $coin_precision . '</tt> (<tt>' . $account['unlocked_balance'] / $coin_precision . '</tt> unlocked)<br />';
             echo ( $account['label'] ) ? 'Label: <tt>' . $account['label'] . '</tt><br />' : '';
             echo ( $account['tag'] ) ? 'Tag: <tt>' . $account['tag'] . '</tt><br />' : '';
             echo '</p>';
@@ -111,8 +111,8 @@ $get_balance = $walletRPC->get_balance();
       </dd>
       <dt><tt>get_balance()</tt></dt>
       <dd>
-        <p>Balance: <tt><?php echo $get_balance['balance'] / pow(10, 12); ?></tt></p>
-        <p>Unlocked balance: <tt><?php echo $get_balance['unlocked_balance'] / pow(10, 12); ?></tt></p>
+        <p>Balance: <tt><?php echo $get_balance['balance'] / $coin_precision; ?></tt></p>
+        <p>Unlocked balance: <tt><?php echo $get_balance['unlocked_balance'] / $coin_precision; ?></tt></p>
       </dd>
     </dl>
   </body>
