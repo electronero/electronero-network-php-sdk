@@ -1,6 +1,7 @@
 # Electronero PHP SDK
 A Electronero library written in PHP by [Electronero Integrations](https://electronerointegrations.com).</br>
-Forked by [Interchained](https://github.com/interchained) for Electronero Network](https://github.com/electronero)</br>
+Forked [Interchained](https://github.com/interchained) for Electronero Network](https://github.com/electronero from Monero)</br>
+Thank you Monero [`Monero`](https://github.com/monero-integrations/monerophp)
 </br>
 This is compatible with all of Electronero Network coins: ETNX, ETNXP, LTNX, GLDX, and CRFI. 
 </br>
@@ -22,7 +23,7 @@ This library has 3 main parts:
 In addition to these features, there are other lower-level libraries included for portability, *eg.* an ed25519 library, a SHA3 library, *etc.*
 
 ## Documentation
-Documentation can be found in the [`/docs`](https://github.com/shopglobal/electronero-network-php-sdk/tree/master/monerophp/docs) folder.
+Documentation can be found in the [`/docs`](https://github.com/electronero/electronero-network-php-sdk/tree/master/monerophp/docs) folder.
 
 ## Configuration
 ### Requirements
