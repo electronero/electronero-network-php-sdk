@@ -1,12 +1,27 @@
+
 # Electronero Network PHP Library (lite)
 A Electronero library written in PHP by the [Monero Integrations](https://monerointegrations.com) [team](https://github.com/monero-integrations/monerophp/graphs/contributors).
 
+Forked by [Interchained](https://github.com/interchained) for Electronero Network](https://github.com/electronero/electronero)</br>
+Thank you [`Monero Intergrations`](https://github.com/monero-integrations/monerophp)
+</br>
+This is compatible with all of Electronero Network coins: ETNX, ETNXP, LTNX, GLDX, and CRFI. 
+</br>
+Each coin has their own PHP wrapper </br>
+</br>
+Telegram: https://t.me/electronero </br>
+Twitter: https://twitter.com/_electronero </br>
+</br>
+Daemon Docs > https://github.com/electronero/electronero-php-sdk/blob/master/electronerophp/docs/daemonRPC.md </br>
+Wallet Docs > https://github.com/electronero/electronero-php-sdk/blob/master/electronerophp/docs/walletRPC.md </br
+______________________________
 ## How It Works
-This library has 3 main parts:
+This library has 4 main parts, for each native electronero coin we need the appropriate daemonRPC, and walletRPC PHP files and a single jsonRPCClient.php & cryptonote.php:
 
 1. A Electronero daemon JSON RPC API wrapper, `daemonRPC.php`
 2. A Electronero wallet (`electronero-wallet-rpc`) JSON RPC API wrapper, `walletRPC.php`
 3. A Electronero/Cryptonote toolbox, `cryptonote.php`, with both lower level functions used in Electronero related cryptography and higher level methods for things like generating Monero private/public keys.
+4. jsonRPCClient.php Written using the JSON RPC specification.
 
 In addition to these features, there are other lower-level libraries included for portability, *eg.* an ed25519 library, a SHA3 library, *etc.*
 
@@ -19,7 +34,7 @@ Documentation can be found in the [`/docs`](https://github.com/electronero/elect
 
 ## Configuration
 ### Requirements
- - Electronero daemon (`electronerod`)
+ - Electronero daemon (`electronerod`, `pulsed`, `litenerod`, `goldnerod`, `crystaleumd`)
  - Webserver with PHP, for example XMPP, Apache, or NGINX
     - cURL PHP extension for JSON RPC API(s)
     - GMP PHP extension for about 100x faster calculations (as opposed to BCMath)
@@ -28,6 +43,7 @@ Debian (or Ubuntu) are recommended.
  
 ### Getting Started
 
+example with electronerod, repeat the process for each native electronero network coin with their matching DaemonRPC and WalletRPC.
 1. Start the Electronero daemon (`electronerod`) on testnet.
 ```bash
 electronerod --testnet --detach
