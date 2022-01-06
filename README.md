@@ -1,7 +1,7 @@
 
 # Electronero Network PHP Library 
 A Electronero library written in PHP by the [Monero Integrations](https://monerointegrations.com) [team](https://github.com/monero-integrations/monerophp/graphs/contributors).
-
+USE DEVELOP BRANCH FOR THE LITE VERSION
 Forked by [Interchained](https://github.com/interchained) for Electronero Network](https://github.com/electronero/electronero)</br>
 Thank you [`Monero Intergrations`](https://github.com/monero-integrations/monerophp)
 </br>
